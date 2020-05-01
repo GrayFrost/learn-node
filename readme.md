@@ -4,7 +4,13 @@
 
 nodemon
 cross-env
+
+mysql
+redis
+
 ## 模块
 
 * [querystring](./querystring/querystring.md)
 * [path](./path/path.md)
+* [fs](./fs/fs.md)
+* readline
