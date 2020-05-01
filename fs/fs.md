@@ -40,13 +40,13 @@ Node.js抽象了各操作系统之间差异，为每个打开的文件分配一�
 ### readFile
 > fs.readFile(path[, options], callback)  
 
-* path <string> | <Buffer> | <URL> | <integer> 文件名或文件描述符。
-* options <Object> | <string>
-  + encoding <string> | <null> 默认值: null。
-  + flag <string> 参见文件系统 flag 的支持。默认值: 'r'。
-* callback <Function>
-  + err <Error>
-  + data <string> | <Buffer>
+* path `<string>` | `<Buffer>` | `<URL>` | `<integer>` 文件名或文件描述符。
+* options `<Object>` | `<string>`
+  + encoding `<string>` | `<null>` 默认值: null。
+  + flag `<string>` 参见文件系统 flag 的支持。默认值: 'r'。
+* callback `<Function>`
+  + err `<Error>`
+  + data `<string>` | `<Buffer>`
 
 异步读取文件。如果指定encoding，data是一个解析后的字符串，否则将会以Buffer形式表示的二进制数据。
 ``` javascript
@@ -85,14 +85,14 @@ try {
 ### writeFile
 > fs.writeFile(file, data[, options], callback)  
 
-* file <string> | <Buffer> | <URL> | <integer> 文件名或文件描述符。
-* data <string> | <Buffer> | <TypedArray> | <DataView>
-* options <Object> | <string>
-  + encoding <string> | <null> 默认值: 'utf8'。
-  + mode <integer> 默认值: 0o666。
-  + flag <string> 默认值: 'w'。
-* callback <Function>
-  + err <Error>
+* file `<string>` | `<Buffer>` | `<URL>` | `<integer>` 文件名或文件描述符。
+* data `<string>` | `<Buffer>` | `<TypedArray>` | `<DataView>`
+* options `<Object>` | `<string>`
+  + encoding `<string>` | `<null>` 默认值: 'utf8'。
+  + mode `<integer>` 默认值: 0o666。
+  + flag `<string>` 默认值: 'w'。
+* callback `<Function>`
+  + err `<Error>`
 
 异步写文件。file参数会区分是一个文件名还是文件描述符，如果是文件名，异步写入数据到文件，若文件已存在，覆盖文件内容。
 ``` javascript
@@ -136,14 +136,14 @@ try{
 ### appendFile
 > fs.appendFile(path, data[, options], callback)  
 
-* path <string> | <Buffer> | <URL> | <number> 文件名或文件描述符。
-* data <string> | <Buffer>
-* options <Object> | <string>
-  + encoding <string> | <null> 默认值: 'utf8'。
-  + mode <integer> 默认值: 0o666。
-  + flag <string> 默认值: 'a'。
-* callback <Function>
-  + err <Error>
+* path `<string>` | `<Buffer>` | `<URL>` | `<number>` 文件名或文件描述符。
+* data `<string>` | `<Buffer>`
+* options `<Object>` | `<string>`
+  + encoding `<string>` | `<null>` 默认值: 'utf8'。
+  + mode `<integer>` 默认值: 0o666。
+  + flag `<string>` 默认值: 'a'。
+* callback `<Function>`
+  + err `<Error>`
 
 异步追加文件内容。异步地将数据追加到文件，如果文件尚不存在则创建该文件。
 ``` javascript
@@ -177,9 +177,9 @@ try{
 ### unlink
 > fs.unlink(path, callback)  
 
-* path <string> | <Buffer> | <URL>
-* callback <Function>
-  + err <Error>
+* path `<string>` | `<Buffer>` | `<URL>`
+* callback `<Function>`
+  + err `<Error>`
 
 异步删除文件。
 ``` javascript
@@ -213,12 +213,12 @@ try{
 ### open
 > fs.open(path[, flags[, mode]], callback)  
 
-* path <string> | <Buffer> | <URL>
-* flags <string> | <number> 参见文件系统 flag 的支持。默认值: 'r'。
-* mode <string> | <integer> 默认值: 0o666（可读写）。
-* callback <Function>
-  + err <Error>
-  + fd <integer>
+* path `<string>` | `<Buffer>` | `<URL>`
+* flags `<string>` | `<number>` 参见文件系统 flag 的支持。默认值: 'r'。
+* mode `<string>` | `<integer>` 默认值: 0o666（可读写）。
+* callback `<Function>`
+  + err `<Error>`
+  + fd `<integer>`
 
 异步打开文件。这里我们终于看到之前提到的文件描述符fd了。通常fs.open和fs.write、fs.read结合使用。
 ``` javascript
@@ -253,15 +253,15 @@ try{
 ### read
 > fs.read(fd, buffer, offset, length, position, callback)  
 
-* fd <integer> 文件描述符
-* buffer <Buffer> | <TypedArray> | <DataView> 数据写入的缓冲区
-* offset <integer> buffer中开始写入的偏移量
-* length <integer> 要读取的字节数
-* position <integer> 指定文件中开始读取的位置
-* callback <Function>
-  + err <Error>
-  + bytesRead <integer>
-  + buffer <Buffer>
+* fd `<integer>` 文件描述符
+* buffer `<Buffer>` | `<TypedArray>` | `<DataView>` 数据写入的缓冲区
+* offset `<integer>` buffer中开始写入的偏移量
+* length `<integer>` 要读取的字节数
+* position `<integer>` 指定文件中开始读取的位置
+* callback `<Function>`
+  + err `<Error>`
+  + bytesRead `<integer>`
+  + buffer `<Buffer>`
 也就是offset是控制写入buffer的位置，length和position是控制读取文件的内容
 
 异步读取文件。
@@ -335,15 +335,15 @@ try{
 ### write
 > fs.write(fd, buffer[, offset[, length[, position]]], callback)  
 
-* fd <integer>
-* buffer <Buffer> | <TypedArray> | <DataView>
-* offset <integer>
-* length <integer>
-* position <integer>
-* callback <Function>
-  + err <Error>
-  + bytesWritten <integer>
-  + buffer <Buffer> | <TypedArray> | <DataView>
+* fd `<integer>`
+* buffer `<Buffer>` | `<TypedArray>` | `<DataView>`
+* offset `<integer>`
+* length `<integer>`
+* position `<integer>`
+* callback `<Function>`
+  + err `<Error>`
+  + bytesWritten `<integer>`
+  + buffer `<Buffer>` | `<TypedArray>` | `<DataView>`
 
 异步写文件。将buffer写入到指定的文件。
 
@@ -403,10 +403,10 @@ fs.open(filename, "w", (err, fd) => {
 ### rename
 > fs.rename(oldPath, newPath, callback)
 
-* oldPath <string> | <Buffer> | <URL>
-* newPath <string> | <Buffer> | <URL>
-* callback <Function>
-  + err <Error>
+* oldPath `<string>` | `<Buffer>` | `<URL>`
+* newPath `<string>` | `<Buffer>` | `<URL>`
+* callback `<Function>`
+  + err `<Error>`
 
 ``` javascript
 const fs = require("fs");
@@ -430,12 +430,12 @@ rename除了可以重命名文件名，还能够移动文件。
 
 > fs.mkdir(path[, options], callback)  
 
-* path <string> | <Buffer> | <URL>
-* options <Object> | <integer>
-  + recursive <boolean> 默认值: false。
-  + mode <string> | <integer> Windows 上不支持。默认值: 0o777。
-* callback <Function>
-  + err <Error>
+* path `<string>` | `<Buffer>` | `<URL>`
+* options `<Object>` | `<integer>`
+  + recursive `<boolean>` 默认值: false。
+  + mode `<string>` | `<integer>` Windows 上不支持。默认值: 0o777。
+* callback `<Function>`
+  + err `<Error>`
 
 异步创建文件夹。
 
@@ -493,13 +493,13 @@ fs.rmdir(dirname, (err) => {
 ### readdir
 > fs.readdir(path[, options], callback)
 
-* path <string> | <Buffer> | <URL>
-* options <string> | <Object>
-  + encoding <string> 默认值: 'utf8'。
-  + withFileTypes <boolean> 默认值: false。
-* callback <Function>
-  + err <Error>
-  + files <string[]> | <Buffer[]> | <fs.Dirent[]>
+* path `<string>` | `<Buffer>` | `<URL>`
+* options `<string>` | `<Object>`
+  + encoding `<string>` 默认值: 'utf8'。
+  + withFileTypes `<boolean>` 默认值: false。
+* callback `<Function>`
+  + err `<Error>`
+  + files `<string[]>` | `<Buffer[]>` | `<fs.Dirent[]>`
 
 异步读取文件夹内容。files 是目录中的文件名的数组（不包括 '.' 和 '..'）
 ``` javascript
